@@ -120,10 +120,7 @@ TARGET_USES_LOGD := false
 # RIL
 BOARD_MOBILEDATA_INTERFACE_NAME := "pdp0"
 # RIL
-BOARD_PROVIDES_LIBRIL := true
-BOARD_MODEM_TYPE := xmm6262
 TARGET_SPECIFIC_HEADER_PATH += device/samsung/smdk4412-common/include
-BOARD_RIL_CLASS := ../../../device/samsung/i9300/ril
 
 # Wifi
 BOARD_WLAN_DEVICE                := bcmdhd
