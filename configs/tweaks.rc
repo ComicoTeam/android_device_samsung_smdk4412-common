@@ -8,7 +8,7 @@
 
 on property:sys.boot_completed=1
     write /sys/module/leds_an30259a/parameters/led_switch 1
-    setprop sys.power.cpufreq_max_limit 1200000
+    setprop sys.power.cpufreq_max_limit 1600000
 
     #------BOEFFLA SOUND 1.6.7 (by Lord Boeffla)------#
     #Enable Boeffla sound
