@@ -46,6 +46,22 @@ TARGET_NO_RADIOIMAGE := true
 TARGET_PROVIDES_INIT := true
 TARGET_PROVIDES_INIT_TARGET_RC := true
 
+# Board already specifies -mcpu, but it won't hurt to add mtune, too
+BOARD_GLOBAL_CFLAGS += -mtune=cortex-a9
+BOARD_GLOBAL_CPPFLAGS += -mtune=cortex-a9
+
+# Specify L1/L2 caches used for Exynos 4412
+BOARD_GLOBAL_CFLAGS += --param l1-cache-line-size=32 --param l1-cache-size=32 --param l2-cache-size=1024
+BOARD_GLOBAL_CPPFLAGS += --param l1-cache-line-size=32 --param l1-cache-size=32 --param l2-cache-size=1024
+
+EXYNOS4X12_ENHANCEMENTS := true
+EXYNOS4_ENHANCEMENTS := true
+
+ifdef EXYNOS4X12_ENHANCEMENTS
+BOARD_GLOBAL_CFLAGS += -DEXYNOS4_ENHANCEMENTS
+BOARD_GLOBAL_CFLAGS += -DEXYNOS4X12_ENHANCEMENTS
+endif
+
 # Kernel
 BOARD_KERNEL_CMDLINE := console=ttySAC2,115200
 BOARD_KERNEL_IMAGE_NAME := zImage
@@ -86,10 +102,15 @@ TARGET_PROVIDES_LIBEGL_MALI := true
 TARGET_NEEDS_NATIVE_WINDOW_FORMAT_FIX := true
 # Only needed by Samsung skia changes (not ported beyond 4.4)
 #BOARD_GLOBAL_CFLAGS += -DSEC_HWJPEG_G2D
+BOARD_GLOBAL_CFLAGS += -DFORCE_SCREENSHOT_CPU_PATH
+BOARD_USE_MALI_ALIGNMENT := true
 
 # FIMG Acceleration
 BOARD_USES_FIMGAPI := true
 BOARD_USES_SKIA_FIMGAPI := true
+
+# HWC
+BOARD_USES_PROPRIETARY_HWC := true
 
 # Enable WEBGL in WebKit
 ENABLE_WEBGL := true
