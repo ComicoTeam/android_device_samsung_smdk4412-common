@@ -27,8 +27,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # set threshold to filter unused apps
 PRODUCT_PROPERTY_OVERRIDES += \
-     pm.dexopt.downgrade_after_inactive_days=10
-
+     pm.dexopt.downgrade_after_inactive_days=5
 
 # Speed profile services and wifi-service to reduce RAM and storage.
 PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
