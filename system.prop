@@ -12,3 +12,8 @@ ro.egl.destroy_after_detach=true
 
 # Force OpenGL
 debug.hwui.renderer=opengl
+
+# Enable backpressure for client composition to avoid jank due to
+HWC queue stuffing
+debug.sf.latch_unsignaled=1
+debug.sf.disable_backpressure=1
